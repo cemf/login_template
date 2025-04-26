@@ -54,6 +54,10 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# Configurações de sessão
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 86400  # Duração da sessão em segundos (24 horas)
+
 ROOT_URLCONF = "login_project.urls"
 
 TEMPLATES = [
@@ -135,6 +139,11 @@ AUTH_USER_MODEL = 'home.Usuario'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+
+# Adicione estas configurações de login
+LOGIN_URL = '/api/usuarios/login-page/'
+LOGIN_REDIRECT_URL = '/api/usuarios/area-logada/'

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Área Logada</title>
+    <style>
+        <style>
+            .container {
+                width: 80%;
+                margin: 50px auto;
+                text-align: center;
+            }
+            .welcome {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .logout {
+                padding: 10px 20px;
+                background-color: #dc3545;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                display: inline-block;
+            }
+        </style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome">
+            Olá, {{ user.username }}!
+        </div>
+        <a href="{% url 'usuario-logout' %}" class="logout">Sair</a>
+    </div>
+</body>
+</html>
